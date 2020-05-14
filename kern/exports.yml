@@ -1,0 +1,16 @@
+kern_clockset:
+  attributes: 0
+  version:
+    major: 1
+    minor: 1
+  main:
+    start: module_start
+    stop: module_stop
+  modules:
+    kern_clockset:
+      syscall: true
+      functions:
+        - kbriRtcSetCurrentSecureTick
+        - kbriRtcSetCurrentNetworkTick
+        - kbriRtcSetCurrentTick
+        - kbriSblPostSsMgrSetCpRtc
