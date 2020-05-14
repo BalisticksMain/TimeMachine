@@ -11,36 +11,6 @@
 #include <taihen.h>
 #include "rtc.h"
 
-int WriteFile(char *file, void *buf, int size) {
-	SceUID fd = ksceIoOpen(file, SCE_O_RDWR | SCE_O_CREAT, 0777);
-	if (fd < 0)
-		return fd;
-
-	int written = ksceIoWrite(fd, buf, size);
-
-	ksceIoClose(fd);
-	return written;
-}
-int ReadFile(char *file, void *buf, int size) {
-	SceUID fd = ksceIoOpen(file,SCE_O_RDONLY, 0777);
-	if (fd < 0)
-		return fd;
-
-	int read = ksceIoRead(fd, buf, size);
-
-	ksceIoClose(fd);
-	return read;
-}
-
-int getFileSize(const char *file) {
-	SceUID fd = ksceIoOpen(file, SCE_O_RDONLY, 0);
-	if (fd < 0)
-		return fd;
-	int fileSize = ksceIoLseek(fd, 0, SCE_SEEK_END);
-	ksceIoClose(fd);
-	return fileSize;
-}
-
 int kbriRtcSetCurrentTick(unsigned int timestamp1,unsigned int timestamp2)
 {
     unsigned int timestamp[2];
