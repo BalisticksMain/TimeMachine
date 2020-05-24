@@ -129,22 +129,34 @@ draw_main_screen:
 		vita2d_clear_screen();
 	
 		vita2d_pgf_draw_text(pgf, 1, 20, RGBA8(255, 255, 255, 255), 1.0f, "Time Machine");
-		if(sel == 0)
-			vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(0, 255, 0, 255), 1.0f, "CurrentTick");
-		else
-			vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(255, 255, 255, 255), 1.0f, "CurrentTick");
-		if(sel == 1)
-			vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(0, 255, 0, 255), 1.0f, "NetworkTick");
-		else
-			vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(255, 255, 255, 255), 1.0f, "NetworkTick");
-		if(sel == 2)
-			vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(0, 255, 0, 255), 1.0f, "SecureTick");
-		else
-			vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(255, 255, 255, 255), 1.0f, "SecureTick");
-		if(sel == 3)
-			vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(0, 255, 0, 255), 1.0f, "CpRtc (DevKit Only)");
-		else
-			vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(255, 255, 255, 255), 1.0f, "CpRtc (DevKit Only)");
+                switch(sel){
+	        case 0:
+		vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(0, 255, 0, 255), 1.0f, "CurrentTick");
+                vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(255, 255, 255, 255), 1.0f, "NetworkTick");
+                vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(255, 255, 255, 255), 1.0f, "SecureTick");
+                vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(255, 255, 255, 255), 1.0f, "CpRtc (DevKit Only)");
+		break;
+                case 1:
+                vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(255, 255, 255, 255), 1.0f, "CurrentTick");
+		vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(0, 255, 0, 255), 1.0f, "NetworkTick");
+                vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(255, 255, 255, 255), 1.0f, "SecureTick");
+                vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(255, 255, 255, 255), 1.0f, "CpRtc (DevKit Only)");
+                break;
+                case 2:
+	        vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(255, 255, 255, 255), 1.0f, "CurrentTick");
+                vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(255, 255, 255, 255), 1.0f, "NetworkTick");
+		vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(0, 255, 0, 255), 1.0f, "SecureTick");
+                vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(255, 255, 255, 255), 1.0f, "CpRtc (DevKit Only)");
+	        break;
+       	        case 3:
+                vita2d_pgf_draw_text(pgf, 1, 40, RGBA8(255, 255, 255, 255), 1.0f, "CurrentTick");
+                vita2d_pgf_draw_text(pgf, 1, 60, RGBA8(255, 255, 255, 255), 1.0f, "NetworkTick");
+                vita2d_pgf_draw_text(pgf, 1, 80, RGBA8(255, 255, 255, 255), 1.0f, "SecureTick");
+ 		vita2d_pgf_draw_text(pgf, 1, 100, RGBA8(0, 255, 0, 255), 1.0f, "CpRtc (DevKit Only)");
+                break;
+		}
+
+          
 		
 		vita2d_end_drawing();
 		vita2d_swap_buffers();
